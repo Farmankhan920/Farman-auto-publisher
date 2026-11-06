@@ -1,0 +1,9 @@
+{
+  "name": "farman-auto-publisher",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Farman Auto Publisher - static site plus Vercel serverless API for TikTok publishing from Google Drive. No dependencies.",
+  "scripts": {
+    "check": "node scripts/smoke-test.js"
+  }
+}

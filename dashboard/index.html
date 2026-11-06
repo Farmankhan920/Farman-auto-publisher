@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard – Farman Auto Publisher</title>
+  <meta name="description" content="Connect TikTok and Google Drive, choose videos, set captions and schedules, and track publishing with Farman Auto Publisher.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#F8F5EE">
+  <link rel="canonical" href="https://auto-three-cyan.vercel.app/dashboard/">
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Farman Auto Publisher home">
+        <span class="brand-mark" aria-hidden="true">F</span>
+        <span class="brand-name">Farman Auto Publisher</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#workflow">Workflow</a></li>
+          <li><a href="/terms-of-service/">Terms</a></li>
+          <li><a href="/privacy-policy/">Privacy</a></li>
+          <li><a href="/data-deletion/">Data Deletion</a></li>
+          <li><a href="/dashboard/" aria-current="page">Dashboard</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="page-hero">
+        <span class="eyebrow">Dashboard</span>
+        <h1>Publishing dashboard</h1>
+        <p>Connect your accounts, pick videos from Google Drive, review each post, and publish or schedule it to your own TikTok account.</p>
+      </div>
+
+      <div id="banner" role="status" aria-live="polite"></div>
+      <noscript><div class="banner warn">This dashboard needs JavaScript enabled.</div></noscript>
+
+      <!-- Connections -->
+      <section class="dash-grid two" aria-label="Connections">
+        <article class="glass dcard" id="tiktok-card" aria-live="polite"><p class="muted">Loading TikTok status…</p></article>
+        <article class="glass dcard" id="google-card" aria-live="polite"><p class="muted">Loading Google Drive status…</p></article>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats" id="stats" aria-label="Statistics"></section>
+
+      <!-- Drive browser -->
+      <section class="glass dcard" id="drive-section" aria-labelledby="drive-h">
+        <div class="dhead"><h2 id="drive-h">Google Drive videos</h2><span class="muted" id="folder-label"></span></div>
+        <div id="drive-body"><p class="muted">Connect Google Drive to browse your videos.</p></div>
+      </section>
+
+      <!-- Compose -->
+      <section class="glass dcard" id="compose-section" aria-labelledby="compose-h" hidden>
+        <div class="dhead"><h2 id="compose-h">Post settings</h2><span class="muted" id="selected-count"></span></div>
+        <form id="compose-form" novalidate>
+          <div class="form-grid">
+            <fieldset class="field">
+              <legend>Publishing mode</legend>
+              <label class="radio"><input type="radio" name="mode" value="draft" checked> Upload as TikTok draft <small>(video.upload – you finish the post inside the TikTok app)</small></label>
+              <label class="radio"><input type="radio" name="mode" value="direct"> Publish directly <small>(video.publish – posts immediately with the settings below)</small></label>
+            </fieldset>
+            <div class="field" id="direct-fields">
+              <label for="privacy">Who can view this video <span class="req">*</span></label>
+              <select id="privacy"><option value="">Select privacy level…</option></select>
+              <small class="muted" id="creator-note"></small>
+              <div class="checks">
+                <label><input type="checkbox" id="allow-comment"> Allow comments</label>
+                <label><input type="checkbox" id="allow-duet"> Allow Duet</label>
+                <label><input type="checkbox" id="allow-stitch"> Allow Stitch</label>
+              </div>
+              <label class="check"><input type="checkbox" id="commercial"> This video promotes a brand, product or service</label>
+              <div id="commercial-fields" hidden>
+                <label class="check"><input type="checkbox" id="brand-organic"> Your brand (you promote yourself or your business)</label>
+                <label class="check"><input type="checkbox" id="brand-content"> Branded content (you promote another brand)</label>
+                <small class="muted">Branded content cannot be posted with "Only me" visibility.</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="default-caption">Default caption</label>
+            <textarea id="default-caption" rows="2" maxlength="2200" placeholder="Caption used for every selected video (you can edit each one below)"></textarea>
+            <label for="default-tags">Default hashtags</label>
+            <input id="default-tags" type="text" maxlength="500" placeholder="#fyp #mybrand  (separate with spaces)">
+            <button type="button" class="btn btn-ghost small" id="apply-defaults">Apply to all selected videos</button>
+            <small class="muted" id="draft-note">Draft uploads: TikTok's API does not accept captions for drafts. Add the caption in the TikTok app when you finish the draft.</small>
+          </div>
+
+          <div class="field">
+            <label for="schedule-at">Schedule (optional)</label>
+            <input id="schedule-at" type="datetime-local">
+            <small class="muted" id="schedule-note">Leave empty to add videos to the queue and publish them manually.</small>
+          </div>
+
+          <h3>Selected videos</h3>
+          <div id="selected-list" class="selected-list"></div>
+
+          <div class="btn-row">
+            <button type="submit" class="btn btn-primary" id="add-queue">Add to queue</button>
+            <button type="button" class="btn btn-ghost" id="clear-selection">Clear selection</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Queue / schedule manager -->
+      <section class="glass dcard" aria-labelledby="queue-h">
+        <div class="dhead"><h2 id="queue-h">Queue &amp; schedule manager</h2></div>
+        <div id="queue-body"><p class="muted">Nothing in the queue yet.</p></div>
+      </section>
+
+      <!-- History -->
+      <section class="glass dcard" aria-labelledby="history-h" style="margin-bottom:56px">
+        <div class="dhead"><h2 id="history-h">Publishing history</h2></div>
+        <div id="history-body"><p class="muted">No publishing history yet.</p></div>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="confirm-dialog" aria-labelledby="dlg-title">
+    <form method="dialog" id="dlg-form">
+      <h2 id="dlg-title">Confirm</h2>
+      <div id="dlg-body"></div>
+      <label class="check"><input type="checkbox" id="dlg-check"> <span id="dlg-check-label">I confirm.</span></label>
+      <div class="btn-row">
+        <button type="button" class="btn btn-ghost" id="dlg-cancel">Cancel</button>
+        <button type="button" class="btn btn-primary" id="dlg-ok" disabled>Confirm</button>
+      </div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">F</span><span class="brand-name">Farman Auto Publisher</span></a>
+          <p style="margin-top:12px;color:var(--ink-soft);max-width:380px">A Google Drive to TikTok publishing workflow, built around your authorization and control.</p>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/terms-of-service/">Terms of Service</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="/data-deletion/">Data Deletion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#workflow">Workflow</a></li>
+            <li><a href="/dashboard/">Dashboard</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© <span id="year">2026</span> Farman Auto Publisher. All rights reserved. Not affiliated with or endorsed by TikTok or Google. TikTok is a trademark of its respective owner.</div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/dashboard.js" defer></script>
+</body>
+</html>

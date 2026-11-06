@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Farman Auto Publisher – Google Drive to TikTok Publishing Workflow</title>
+  <meta name="description" content="Farman Auto Publisher is a publishing workflow tool that connects Google Drive videos to TikTok using Login Kit and the Content Posting API, with scheduling handled by Google Apps Script.">
+  <meta name="theme-color" content="#F8F5EE">
+  <link rel="canonical" href="https://YOUR-DOMAIN.vercel.app/">
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Farman Auto Publisher">
+  <meta property="og:title" content="Farman Auto Publisher – Google Drive to TikTok Publishing Workflow">
+  <meta property="og:description" content="Prepare videos in Google Drive and publish them to your own TikTok account with your authorization.">
+  <meta property="og:url" content="https://YOUR-DOMAIN.vercel.app/">
+  <meta property="og:image" content="https://YOUR-DOMAIN.vercel.app/assets/images/favicon.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Farman Auto Publisher home">
+        <span class="brand-mark" aria-hidden="true">F</span>
+        <span class="brand-name">Farman Auto Publisher</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" aria-current="page">Home</a></li>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#workflow">Workflow</a></li>
+          <li><a href="/terms-of-service/">Terms</a></li>
+          <li><a href="/privacy-policy/">Privacy</a></li>
+          <li><a href="/data-deletion/">Data Deletion</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Publishing workflow tool</span>
+          <h1>From Google Drive to TikTok, <span class="accent">organized and authorized.</span></h1>
+          <p class="lead">Farman Auto Publisher helps a creator prepare videos in Google Drive and publish them to their own TikTok account, using TikTok Login Kit for authorization and the TikTok Content Posting API for publishing.</p>
+          <div class="notice" role="note">
+            <span aria-hidden="true">ℹ️</span>
+            <span><strong>Project status:</strong> Farman Auto Publisher is under development and is being submitted for TikTok app review. Features described on this site reflect the intended design; availability of any TikTok capability depends on TikTok's approval.</span>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#workflow">See how it works</a>
+            <a class="btn btn-ghost" href="/contact/">Contact support</a>
+          </div>
+        </div>
+        <aside class="glass hero-visual reveal" aria-label="Workflow summary">
+          <ol class="flow-mini">
+            <li><span class="dot">1</span>Videos stored in your Google Drive</li>
+            <li><span class="dot">2</span>You connect TikTok via Login Kit</li>
+            <li><span class="dot">3</span>Caption, hashtags and schedule set</li>
+            <li><span class="dot">4</span>Posting requested through TikTok API</li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Features</span>
+          <h2>Designed for a calm, controlled publishing routine</h2>
+          <p>The capabilities below describe what the application is designed to do. Each depends on your authorization and on TikTok's platform rules.</p>
+        </div>
+        <div class="grid cols-3">
+          <article class="glass card reveal">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 3 18h6l3-5 3 5h6z"/></svg></div>
+            <h3>Google Drive video source</h3>
+            <p>Keep your videos in a Google Drive folder you control. Access is limited to the files and folders you choose to use with the workflow.</p>
+          </article>
+          <article class="glass card reveal">
+            <div class="icon-badge gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <h3>TikTok Login Kit authorization</h3>
+            <p>You sign in on TikTok's own authorization screen and approve exactly the permissions requested. You can revoke access at any time.</p>
+          </article>
+          <article class="glass card reveal">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H5.2L4 17.2z"/><path d="M8 9h8M8 12h5"/></svg></div>
+            <h3>Captions and hashtags</h3>
+            <p>Prepare captions and hashtags for each video before it is submitted, so every post matches what you intended to publish.</p>
+          </article>
+          <article class="glass card reveal">
+            <div class="icon-badge gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <h3>Publishing schedules</h3>
+            <p>Plan when videos should be submitted. Scheduling is handled by Google Apps Script automation that runs under your own Google account.</p>
+          </article>
+          <article class="glass card reveal">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.2 8 8 9 4.8-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <h3>Privacy-minded by design</h3>
+            <p>We aim to collect only what the workflow needs. Our <a href="/privacy-policy/">Privacy Policy</a> explains what is handled and why.</p>
+          </article>
+          <article class="glass card reveal">
+            <div class="icon-badge gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg></div>
+            <h3>Disconnect and delete</h3>
+            <p>You can disconnect your TikTok account and request deletion of stored data at any time. See <a href="/data-deletion/">Data Deletion</a>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Workflow</span>
+          <h2>Google Drive to TikTok publishing workflow</h2>
+          <p>A simple four-stage flow. You stay in control of which videos are published and when.</p>
+        </div>
+        <div class="steps">
+          <div class="glass step reveal">
+            <h3>Prepare in Drive</h3>
+            <p>Place the videos you own, or have permission to publish, in a Google Drive folder.</p>
+          </div>
+          <div class="glass step reveal">
+            <h3>Authorize TikTok</h3>
+            <p>Connect your TikTok account through TikTok Login Kit and approve the requested permissions.</p>
+          </div>
+          <div class="glass step reveal">
+            <h3>Set details</h3>
+            <p>Add the caption, hashtags and intended schedule for each video.</p>
+          </div>
+          <div class="glass step reveal">
+            <h3>Publish via API</h3>
+            <p>At the scheduled time, Google Apps Script requests the post through the TikTok Content Posting API.</p>
+          </div>
+        </div>
+        <p class="meta reveal" style="margin-top:18px">Posting behavior, visibility options and limits are determined by TikTok and may change. Unaudited TikTok apps may be restricted by TikTok to private visibility until approved.</p>
+      </div>
+    </section>
+
+    <section id="legal">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Policies</span>
+          <h2>Transparency and your choices</h2>
+          <p>Read how the service works, what data is handled, and how to disconnect or delete it.</p>
+        </div>
+        <div class="grid cols-3 link-cards">
+          <a class="glass card reveal" href="/terms-of-service/"><h3>Terms of Service →</h3><p>The rules for using Farman Auto Publisher.</p></a>
+          <a class="glass card reveal" href="/privacy-policy/"><h3>Privacy Policy →</h3><p>What information is handled and how it is protected.</p></a>
+          <a class="glass card reveal" href="/data-deletion/"><h3>Data Deletion →</h3><p>How to disconnect your account and delete stored data.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="glass card reveal" style="padding:32px">
+          <span class="eyebrow">Contact</span>
+          <h2>Questions, support or privacy requests</h2>
+          <p>Email us at <a href="mailto:your-email@example.com"><span class="ph">your-email@example.com</span></a>. For full details on support and privacy inquiries, visit the <a href="/contact/">Contact page</a>.</p>
+          <div class="btn-row"><a class="btn btn-primary" href="/contact/">Go to Contact</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">F</span><span class="brand-name">Farman Auto Publisher</span></a>
+          <p style="margin-top:12px;color:var(--ink-soft);max-width:380px">A Google Drive to TikTok publishing workflow, built around your authorization and control.</p>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/terms-of-service/">Terms of Service</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="/data-deletion/">Data Deletion</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#workflow">Workflow</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© <span id="year">2026</span> Farman Auto Publisher. All rights reserved. Not affiliated with or endorsed by TikTok or Google. TikTok is a trademark of its respective owner.</div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,4 +1,10 @@
 {
+  "functions": {
+    "api/**/*.js": { "maxDuration": 60 }
+  },
+  "crons": [
+    { "path": "/api/cron/run", "schedule": "0 4 * * *" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -11,7 +17,7 @@
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     }
   ]

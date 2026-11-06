@@ -6,7 +6,7 @@
   <title>Privacy Policy – Farman Auto Publisher</title>
   <meta name="description" content="Privacy Policy for Farman Auto Publisher: how TikTok OAuth data, tokens, Google Drive information, captions, hashtags and schedules are handled.">
   <meta name="theme-color" content="#F8F5EE">
-  <link rel="canonical" href="https://YOUR-DOMAIN.vercel.app/privacy-policy/">
+  <link rel="canonical" href="https://auto-three-cyan.vercel.app/privacy-policy/">
   <link rel="icon" type="image/png" href="/assets/images/favicon.png">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
   <link rel="apple-touch-icon" href="/assets/images/favicon.png">
@@ -14,8 +14,8 @@
   <meta property="og:site_name" content="Farman Auto Publisher">
   <meta property="og:title" content="Privacy Policy – Farman Auto Publisher">
   <meta property="og:description" content="How Farman Auto Publisher handles your information.">
-  <meta property="og:url" content="https://YOUR-DOMAIN.vercel.app/privacy-policy/">
-  <meta property="og:image" content="https://YOUR-DOMAIN.vercel.app/assets/images/favicon.png">
+  <meta property="og:url" content="https://auto-three-cyan.vercel.app/privacy-policy/">
+  <meta property="og:image" content="https://auto-three-cyan.vercel.app/assets/images/favicon.png">
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
@@ -39,6 +39,7 @@
           <li><a href="/terms-of-service/">Terms</a></li>
           <li><a href="/privacy-policy/" aria-current="page">Privacy</a></li>
           <li><a href="/data-deletion/">Data Deletion</a></li>
+          <li><a href="/dashboard/">Dashboard</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
@@ -106,8 +107,8 @@
             <table class="data">
               <thead><tr><th>Item</th><th>Purpose</th><th>Storage location</th></tr></thead>
               <tbody>
-                <tr><td>Access token</td><td>Authorizes API requests to TikTok</td><td><span class="ph">[e.g., Google Apps Script Properties Service in your own Google account / other]</span></td></tr>
-                <tr><td>Refresh token</td><td>Obtains a new access token when the old one expires</td><td><span class="ph">[e.g., Google Apps Script Properties Service in your own Google account / other]</span></td></tr>
+                <tr><td>Access token</td><td>Authorizes API requests to TikTok</td><td>Stored server-side, encrypted (AES-256-GCM), in the application's session storage (Upstash Redis / Vercel KV). If that storage is not configured, they are held in an encrypted, HttpOnly cookie in your browser. They are never exposed to browser JavaScript.</td></tr>
+                <tr><td>Refresh token</td><td>Obtains a new access token when the old one expires</td><td>Stored server-side, encrypted (AES-256-GCM), in the application's session storage (Upstash Redis / Vercel KV). If that storage is not configured, they are held in an encrypted, HttpOnly cookie in your browser. They are never exposed to browser JavaScript.</td></tr>
               </tbody>
             </table>
             <p>Tokens are not intentionally shared with anyone except TikTok, are used only to carry out your requested actions, and are deleted or invalidated when you disconnect your account or request deletion, as described below.</p>
@@ -136,7 +137,7 @@
 
           <section id="security">
             <h2>8. Data storage and security</h2>
-            <p>We aim to use reasonable technical and organizational measures to protect information, such as restricting access to credentials, using encrypted (HTTPS) connections, and limiting data to what the workflow needs. Specific storage details for this implementation: <span class="ph">[Describe storage: e.g., stored within your Google account via Apps Script; no separate database operated by us / or describe your database and hosting region]</span>.</p>
+            <p>We aim to use reasonable technical and organizational measures to protect information, such as restricting access to credentials, using encrypted (HTTPS) connections, and limiting data to what the workflow needs. Specific storage details for this implementation: connection tokens, selected Drive folder, queue, schedules and publishing history are stored in the application's session storage (Upstash Redis / Vercel KV), encrypted with AES-256-GCM. If that storage is not configured, a limited amount of the same data is kept in an encrypted, HttpOnly cookie in your browser. <span class="ph">[Add storage region/provider details if you want to be more specific]</span>.</p>
             <p>No method of transmission or storage is completely secure, and we cannot guarantee absolute security. Please protect your own accounts with strong passwords and two-step verification.</p>
           </section>
 
@@ -208,6 +209,7 @@
           <ul>
             <li><a href="/#features">Features</a></li>
             <li><a href="/#workflow">Workflow</a></li>
+            <li><a href="/dashboard/">Dashboard</a></li>
             <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
